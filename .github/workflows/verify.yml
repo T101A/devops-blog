@@ -15,12 +15,14 @@ jobs:
       with:
         go-version: '1.20'
 
-    - name: Make direktori
-      run: mkdir themes/beautifulhugo
-
+    - name: Make direktori Themes
+      run: mkdir themes
     - name: Open direktori
-      run: cd themes/beautifulhugo
-
+      run: cd themes
+    - name: Make direktori Themes
+      run: mkdir beautifulhugo
+    - name: Open direktori
+      run: cd beautifulhugo
     - name: Dwonload Hugo
       run: git clone https://GitHub.com/halogenica/beautifulhugo.git themes/beautifulhugo
 

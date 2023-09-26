@@ -1,0 +1,34 @@
+name : verify-code
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+
+    - name: Make direktori
+      run: mkdir themes/beautifulhugo
+
+    - name: Open direktori
+      run: cd themes/beautifulhugo
+
+    - name: Dwonload Hugo
+      run: git clone https://GitHub.com/halogenica/beautifulhugo.git themes/beautifulhugo
+
+    - name: Install Hugo
+      run: hugo --theme beautifulhugo
+      
+    - name: Deploy to GH Pages 🚀
+      id: deployment
+      uses: actions/deploy-pages@v2

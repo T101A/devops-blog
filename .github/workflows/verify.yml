@@ -1,9 +1,7 @@
 name : verify-code2
 
 on:
-  push:
-    branches:
-    - main
+  push
 
 jobs:
 

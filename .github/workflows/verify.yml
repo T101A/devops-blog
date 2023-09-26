@@ -24,11 +24,11 @@ jobs:
     - name: Open direktori
       run: cd beautifulhugo
     - name: Dwonload Hugo
-      run: git clone https://GitHub.com/halogenica/beautifulhugo.git themes/beautifulhugo
-
+      run: git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
     - name: Install Hugo
-      run: hugo --theme beautifulhugo
-      
+      run: cp -r themes/beautifulhugo/exampleSite/* . -iv
+    - name: Run Hugo
+      run: hugo serve
     - name: Deploy to GH Pages 🚀
       id: deployment
       uses: actions/deploy-pages@v2
